@@ -1,8 +1,8 @@
 # FavorCollection
  
-##### 基礎功能 : CRUD(增刪查改)
+### 基礎功能 : CRUD(增刪查改)
 
-##### 進階功能 : PageList(分頁)，Session(驗證)，Bootstrap的carousel語法
+### 進階功能 : PageList(分頁)，Session(驗證)，Bootstrap的carousel語法
 
 ##### 系統功能敘述分為三部份 :
 
