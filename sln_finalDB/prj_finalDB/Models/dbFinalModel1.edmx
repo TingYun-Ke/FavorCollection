@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dbFinalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="TableAccommodation2034">
+          <Key>
+            <PropertyRef Name="aName" />
+          </Key>
+          <Property Name="aName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="aPrice" Type="varchar" MaxLength="9" />
+          <Property Name="aPhone" Type="varchar" MaxLength="10" />
+          <Property Name="address" Type="varchar" MaxLength="50" />
+          <Property Name="type" Type="varchar" MaxLength="8" />
+          <Property Name="aCounty" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableBrowser2034">
+          <Key>
+            <PropertyRef Name="bNo" />
+          </Key>
+          <Property Name="bNo" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="bName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="email" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="bPhone" Type="varchar" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableHas2034">
+          <Key>
+            <PropertyRef Name="bNo" />
+            <PropertyRef Name="sName" />
+          </Key>
+          <Property Name="bNo" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="sName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableIncludes2034">
+          <Key>
+            <PropertyRef Name="bNo" />
+            <PropertyRef Name="aName" />
+          </Key>
+          <Property Name="bNo" Type="char" MaxLength="4" Nullable="false" />
+          <Property Name="aName" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TableSight2034">
+          <Key>
+            <PropertyRef Name="sName" />
+          </Key>
+          <Property Name="sName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ticket" Type="int" />
+          <Property Name="businessHour" Type="varchar" MaxLength="50" />
+          <Property Name="sCounty" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__TableHas2__sName__468862B0">
+          <End Role="TableSight2034" Type="Self.TableSight2034" Multiplicity="1" />
+          <End Role="TableHas2034" Type="Self.TableHas2034" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableSight2034">
+              <PropertyRef Name="sName" />
+            </Principal>
+            <Dependent Role="TableHas2034">
+              <PropertyRef Name="sName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TableHas203__bNo__45943E77">
+          <End Role="TableBrowser2034" Type="Self.TableBrowser2034" Multiplicity="1" />
+          <End Role="TableHas2034" Type="Self.TableHas2034" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableBrowser2034">
+              <PropertyRef Name="bNo" />
+            </Principal>
+            <Dependent Role="TableHas2034">
+              <PropertyRef Name="bNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TableIncl__aName__4870AB22">
+          <End Role="TableAccommodation2034" Type="Self.TableAccommodation2034" Multiplicity="1" />
+          <End Role="TableIncludes2034" Type="Self.TableIncludes2034" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableAccommodation2034">
+              <PropertyRef Name="aName" />
+            </Principal>
+            <Dependent Role="TableIncludes2034">
+              <PropertyRef Name="aName" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__TableInclud__bNo__477C86E9">
+          <End Role="TableBrowser2034" Type="Self.TableBrowser2034" Multiplicity="1" />
+          <End Role="TableIncludes2034" Type="Self.TableIncludes2034" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TableBrowser2034">
+              <PropertyRef Name="bNo" />
+            </Principal>
+            <Dependent Role="TableIncludes2034">
+              <PropertyRef Name="bNo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dbFinalModelStoreContainer">
+          <EntitySet Name="TableAccommodation2034" EntityType="Self.TableAccommodation2034" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableBrowser2034" EntityType="Self.TableBrowser2034" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableHas2034" EntityType="Self.TableHas2034" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableIncludes2034" EntityType="Self.TableIncludes2034" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TableSight2034" EntityType="Self.TableSight2034" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__TableHas2__sName__468862B0" Association="Self.FK__TableHas2__sName__468862B0">
+            <End Role="TableSight2034" EntitySet="TableSight2034" />
+            <End Role="TableHas2034" EntitySet="TableHas2034" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TableHas203__bNo__45943E77" Association="Self.FK__TableHas203__bNo__45943E77">
+            <End Role="TableBrowser2034" EntitySet="TableBrowser2034" />
+            <End Role="TableHas2034" EntitySet="TableHas2034" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TableIncl__aName__4870AB22" Association="Self.FK__TableIncl__aName__4870AB22">
+            <End Role="TableAccommodation2034" EntitySet="TableAccommodation2034" />
+            <End Role="TableIncludes2034" EntitySet="TableIncludes2034" />
+          </AssociationSet>
+          <AssociationSet Name="FK__TableInclud__bNo__477C86E9" Association="Self.FK__TableInclud__bNo__477C86E9">
+            <End Role="TableBrowser2034" EntitySet="TableBrowser2034" />
+            <End Role="TableIncludes2034" EntitySet="TableIncludes2034" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dbFinalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="TableAccommodation2034">
+          <Key>
+            <PropertyRef Name="aName" />
+          </Key>
+          <Property Name="aName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="aPrice" Type="String" MaxLength="9" FixedLength="false" Unicode="false" />
+          <Property Name="aPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="String" MaxLength="8" FixedLength="false" Unicode="false" />
+          <Property Name="aCounty" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TableBrowser2034" Relationship="Self.TableIncludes2034" FromRole="TableAccommodation2034" ToRole="TableBrowser2034" />
+        </EntityType>
+        <EntityType Name="TableBrowser2034">
+          <Key>
+            <PropertyRef Name="bNo" />
+          </Key>
+          <Property Name="bNo" Type="String" MaxLength="4" FixedLength="true" Unicode="false" Nullable="false" />
+          <Property Name="bName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="email" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="bPhone" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TableSight2034" Relationship="Self.TableHas2034" FromRole="TableBrowser2034" ToRole="TableSight2034" />
+          <NavigationProperty Name="TableAccommodation2034" Relationship="Self.TableIncludes2034" FromRole="TableBrowser2034" ToRole="TableAccommodation2034" />
+        </EntityType>
+        <EntityType Name="TableSight2034">
+          <Key>
+            <PropertyRef Name="sName" />
+          </Key>
+          <Property Name="sName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ticket" Type="Int32" />
+          <Property Name="businessHour" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sCounty" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TableBrowser2034" Relationship="Self.TableHas2034" FromRole="TableSight2034" ToRole="TableBrowser2034" />
+        </EntityType>
+        <Association Name="TableHas2034">
+          <End Role="TableSight2034" Type="Self.TableSight2034" Multiplicity="*" />
+          <End Role="TableBrowser2034" Type="Self.TableBrowser2034" Multiplicity="*" />
+        </Association>
+        <Association Name="TableIncludes2034">
+          <End Role="TableAccommodation2034" Type="Self.TableAccommodation2034" Multiplicity="*" />
+          <End Role="TableBrowser2034" Type="Self.TableBrowser2034" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="dbFinalEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="TableAccommodation2034" EntityType="Self.TableAccommodation2034" />
+          <EntitySet Name="TableBrowser2034" EntityType="Self.TableBrowser2034" />
+          <EntitySet Name="TableSight2034" EntityType="Self.TableSight2034" />
+          <AssociationSet Name="TableHas2034" Association="Self.TableHas2034">
+            <End Role="TableSight2034" EntitySet="TableSight2034" />
+            <End Role="TableBrowser2034" EntitySet="TableBrowser2034" />
+          </AssociationSet>
+          <AssociationSet Name="TableIncludes2034" Association="Self.TableIncludes2034">
+            <End Role="TableAccommodation2034" EntitySet="TableAccommodation2034" />
+            <End Role="TableBrowser2034" EntitySet="TableBrowser2034" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dbFinalModelStoreContainer" CdmEntityContainer="dbFinalEntities">
+          <EntitySetMapping Name="TableAccommodation2034">
+            <EntityTypeMapping TypeName="dbFinalModel.TableAccommodation2034">
+              <MappingFragment StoreEntitySet="TableAccommodation2034">
+                <ScalarProperty Name="aName" ColumnName="aName" />
+                <ScalarProperty Name="aPrice" ColumnName="aPrice" />
+                <ScalarProperty Name="aPhone" ColumnName="aPhone" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="aCounty" ColumnName="aCounty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableBrowser2034">
+            <EntityTypeMapping TypeName="dbFinalModel.TableBrowser2034">
+              <MappingFragment StoreEntitySet="TableBrowser2034">
+                <ScalarProperty Name="bNo" ColumnName="bNo" />
+                <ScalarProperty Name="bName" ColumnName="bName" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="bPhone" ColumnName="bPhone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TableSight2034">
+            <EntityTypeMapping TypeName="dbFinalModel.TableSight2034">
+              <MappingFragment StoreEntitySet="TableSight2034">
+                <ScalarProperty Name="sName" ColumnName="sName" />
+                <ScalarProperty Name="ticket" ColumnName="ticket" />
+                <ScalarProperty Name="businessHour" ColumnName="businessHour" />
+                <ScalarProperty Name="sCounty" ColumnName="sCounty" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="TableHas2034" TypeName="dbFinalModel.TableHas2034" StoreEntitySet="TableHas2034">
+            <EndProperty Name="TableSight2034">
+              <ScalarProperty Name="sName" ColumnName="sName" />
+            </EndProperty>
+            <EndProperty Name="TableBrowser2034">
+              <ScalarProperty Name="bNo" ColumnName="bNo" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="TableIncludes2034" TypeName="dbFinalModel.TableIncludes2034" StoreEntitySet="TableIncludes2034">
+            <EndProperty Name="TableAccommodation2034">
+              <ScalarProperty Name="aName" ColumnName="aName" />
+            </EndProperty>
+            <EndProperty Name="TableBrowser2034">
+              <ScalarProperty Name="bNo" ColumnName="bNo" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="無" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,58 @@
+﻿@using PagedList
+@using PagedList.Mvc
+
+@model IPagedList<prj_finalDB.Models.TableSight2034>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<h2>景點收藏</h2>
+<h4>
+    歡迎 @Session["name"] 進入系統 !!!
+</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().sName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().ticket)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().businessHour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().sCounty)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.sName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ticket)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.businessHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sCounty)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.sName }) |
+                @Html.ActionLink("Details", "Details", new { id = item.sName }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.sName })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

@@ -1,0 +1,78 @@
+﻿@using PagedList
+@using PagedList.Mvc
+
+@model IPagedList<prj_finalDB.Models.TableAccommodation2034>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<link href="~/Content/PagedList.css" rel="stylesheet" />
+
+<h2>飯店收藏</h2>
+
+<h4>
+    歡迎 @Session["name"] 進入系統 !!!
+</h4>
+
+
+<br />
+
+
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().aName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().aPrice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().aPhone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().address)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().type)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().aCounty)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>
+        <a href="http://www.google.com.tw/maps/place/@item.address" target="_blank">@Html.DisplayFor(modelItem => item.aName)</a>
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.aPrice)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.aPhone)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.address)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.type)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.aCounty)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.aName }) |
+        @Html.ActionLink("Details", "Details", new { id = item.aName }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.aName })
+    </td>
+</tr>
+    }
+
+</table>
+
+@Html.PagedListPager(Model, page => Url.Action("Index", new { page }))

@@ -1,0 +1,67 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    @*<meta http-equiv="X-UA-Compatible" content="IE=edge">*@
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>首頁 - Your Favor Place</title>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <style>
+        .carousel-inner img {
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-inverse" style="margin:0px">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                @Html.ActionLink("首頁", "Home", "Browser", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <ul class="nav navbar-nav">
+                <li>@Html.ActionLink("飯店收藏", "Index", "Acco")</li>
+                <li>@Html.ActionLink("景點收藏", "Index", "Sight")</li>
+                <li>@Html.ActionLink("飯店新增", "Create", "Acco")</li>
+                <li>@Html.ActionLink("景點新增", "Create", "Sight")</li>
+                <li>@Html.ActionLink("我的帳戶", "Details", "Browser")</li>
+            </ul>
+        </div>
+    </nav>
+
+    <div id="aaa" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#aaa" data-slide-to="0" class="active"></li>
+            <li data-target="#aaa" data-slide-to="1"></li>
+            <li data-target="#aaa" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="item active">
+                <img src="~/Images/台北木柵動物園.jpg" style="height:550px">
+            </div>
+            <div class="item">
+                <img src="~/Images/新屋綠色隧道.jpg" style="height:550px">
+            </div>
+            <div class="item">
+                <img src="~/Images/野柳海洋世界.jpg" style="height:550px">
+            </div>
+        </div>
+        <a href="#aaa" class="left carousel-control" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a href="#aaa" class="right carousel-control" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+    </div>
+</body>
+
+</html>

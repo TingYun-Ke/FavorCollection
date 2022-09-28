@@ -1,0 +1,55 @@
+﻿@model IEnumerable<prj_finalDB.Models.TableBrowser2034>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>@Session["name"] 的帳戶資料</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        @foreach (var item in Model)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.bName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.bName)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.email)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.password)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.bPhone)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(modelItem => item.bPhone)
+            </dd>
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = item.bNo }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.bNo }) |
+                @Html.ActionLink("登出", "Login")
+            </p>
+        }
+
+
+    </dl>
+</div>
+

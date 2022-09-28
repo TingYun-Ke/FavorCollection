@@ -1,0 +1,64 @@
+﻿@model prj_finalDB.Models.TableAccommodation2034
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>詳細資訊</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.aName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.aPrice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aPrice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aPhone)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.address)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.address)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.aCounty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.aCounty)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.aName }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

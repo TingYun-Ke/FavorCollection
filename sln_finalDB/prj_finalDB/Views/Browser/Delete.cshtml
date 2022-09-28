@@ -1,0 +1,57 @@
+﻿@model prj_finalDB.Models.TableBrowser2034
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2 style="color:red">刪除帳戶</h2>
+
+<h3>Are you sure you want to delete your Account?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.password)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.password)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bPhone)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bPhone)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+<div class="form-actions no-color">
+    <input type="submit" value="Delete" class="btn btn-default" /> |
+    @Html.ActionLink("返回帳戶", "Details", "Browser") |
+    @Html.ActionLink("Back to List", "Index", "Acco")
+</div>
+    }
+</div>
