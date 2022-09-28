@@ -53,12 +53,6 @@ namespace prj_finalDB.Controllers
             }
         }
 
-        //// GET: Browser
-        //public ActionResult Index()
-        //{
-        //    return View(db.TableBrowser2034.ToList());
-        //}
-
         // GET: Browser/Details/5
         public ActionResult Details()
         {
@@ -82,8 +76,6 @@ namespace prj_finalDB.Controllers
         }
 
         // POST: Browser/Create
-        // 若要免於大量指派 (overposting) 攻擊，請啟用您要繫結的特定屬性，
-        // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "bNo,bName,email,password,bPhone")] TableBrowser2034 tableBrowser2034)
@@ -114,8 +106,6 @@ namespace prj_finalDB.Controllers
         }
 
         // POST: Browser/Edit/5
-        // 若要免於大量指派 (overposting) 攻擊，請啟用您要繫結的特定屬性，
-        // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "bNo,bName,email,password,bPhone")] TableBrowser2034 tableBrowser2034)
