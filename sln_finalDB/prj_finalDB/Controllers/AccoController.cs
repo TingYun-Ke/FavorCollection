@@ -55,8 +55,6 @@ namespace prj_finalDB.Controllers
         }
 
         // POST: Acco/Create
-        // 若要免於大量指派 (overposting) 攻擊，請啟用您要繫結的特定屬性，
-        // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create([Bind(Include = "aName,aPrice,aPhone,address,type,aCounty")] TableAccommodation2034 acco)
@@ -108,8 +106,6 @@ namespace prj_finalDB.Controllers
         }
 
         // POST: Acco/Edit/5
-        // 若要免於大量指派 (overposting) 攻擊，請啟用您要繫結的特定屬性，
-        // 如需詳細資料，請參閱 https://go.microsoft.com/fwlink/?LinkId=317598。
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "aName,aPrice,aPhone,address,type,aCounty")] TableAccommodation2034 tableAccommodation2034)
